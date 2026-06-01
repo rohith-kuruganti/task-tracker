@@ -1,0 +1,357 @@
+{
+  "info": {
+    "_postman_id": "faadea28-89ef-47e9-a1eb-0d33f6b58d2c",
+    "name": "Task Tracker",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55309511"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "/auth/register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohith\",\n  \"email\": \"rohith@gmail.com\",\n  \"password\": \"Rohith@123\",\n  \"organizationName\": \"NxtWave\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/auth/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/auth/login",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"rohith@gmail.com\",\n    \"password\": \"Rohith@123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/auth/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "auth", "login"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "/users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTFjMGE0ZjU4MWJiOWEwZTMyOGE1MWYiLCJyb2xlIjoiQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjZhMWMwYTRlNTgxYmI5YTBlMzI4YTUxZSIsImlhdCI6MTc4MDM0MzIyMSwiZXhwIjoxNzgwMzQ0MTIxfQ.ehPoish25HHxATQapfzyJWYoZl3m0mwzgsmF2EYTAJI",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dileep\",\n  \"email\": \"dileep@gmail.com\",\n  \"password\": \"Dileep@123\",\n  \"role\": \"MEMBER\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/users",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "users"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "/tasks",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTFjMGE0ZjU4MWJiOWEwZTMyOGE1MWYiLCJyb2xlIjoiQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjZhMWMwYTRlNTgxYmI5YTBlMzI4YTUxZSIsImlhdCI6MTc4MDM0MzM3MiwiZXhwIjoxNzgwMzQ0MjcyfQ.KZyjarzccxuzyVMQlWuzDTcyNlHY2xwLJ14yyyUnVVc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Fix login bug\",\n  \"description\": \"JWT issue fix\",\n  \"priority\": \"HIGH\",\n  \"assignee\": \"6a1dd965c1379621360665c0\",\n  \"due_date\": \"2026-12-31\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/tasks",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "tasks"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/tasks?page=1&limit=10",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTFjMGE0ZjU4MWJiOWEwZTMyOGE1MWYiLCJyb2xlIjoiQURNSU4iLCJvcmdhbml6YXRpb25JZCI6IjZhMWMwYTRlNTgxYmI5YTBlMzI4YTUxZSIsImlhdCI6MTc4MDM0MzU0NCwiZXhwIjoxNzgwMzQ0NDQ0fQ.dfltUykuTA9coFMVKrbg2175Q9or1O3Wcl2A-6aVwjg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/tasks?page=1&limit=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "tasks"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/tasks/:id/status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTFkZDk2NWMxMzc5NjIxMzYwNjY1YzAiLCJyb2xlIjoiTUFOQUdFUiIsIm9yZ2FuaXphdGlvbklkIjoiNmExYzBhNGU1ODFiYjlhMGUzMjhhNTFlIiwiaWF0IjoxNzgwMzQzNjU1LCJleHAiOjE3ODAzNDQ1NTV9.vQIf0zH-1_EAiL-dXfyXqJOTIPlBHNFkA3yq6TCVTJo",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"IN_PROGRESS\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/tasks/6a1de280c1379621360665ce/status",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "tasks", "6a1de280c1379621360665ce", "status"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/tasks?status=TODO&priority=HIGH",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTFkZDk2NWMxMzc5NjIxMzYwNjY1YzAiLCJyb2xlIjoiTUFOQUdFUiIsIm9yZ2FuaXphdGlvbklkIjoiNmExYzBhNGU1ODFiYjlhMGUzMjhhNTFlIiwiaWF0IjoxNzgwMzQzODkyLCJleHAiOjE3ODAzNDQ3OTJ9.CMrdD0D_Z7XjVo0afaQm7rdCSWZ2viN9qFnCguJ1PQE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7777/api/tasks?status=IN_PROGRESS&priority=HIGH",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "tasks"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "IN_PROGRESS"
+                },
+                {
+                  "key": "priority",
+                  "value": "HIGH"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/tasks/:id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTFkZDk2NWMxMzc5NjIxMzYwNjY1YzAiLCJyb2xlIjoiTUFOQUdFUiIsIm9yZ2FuaXphdGlvbklkIjoiNmExYzBhNGU1ODFiYjlhMGUzMjhhNTFlIiwiaWF0IjoxNzgwMzQ0MTAwLCJleHAiOjE3ODAzNDUwMDB9.xmYGNkUhoL5ujJKmS_6XEB74DeIfOtIN0dqUGQzaGqU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"priority\": \"MEDIUM\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/tasks/6a1dd99bc1379621360665c2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "tasks", "6a1dd99bc1379621360665c2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/tasks/:id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2YTFkZDk2NWMxMzc5NjIxMzYwNjY1YzAiLCJyb2xlIjoiTUFOQUdFUiIsIm9yZ2FuaXphdGlvbklkIjoiNmExYzBhNGU1ODFiYjlhMGUzMjhhNTFlIiwiaWF0IjoxNzgwMzQ0MTAwLCJleHAiOjE3ODAzNDUwMDB9.xmYGNkUhoL5ujJKmS_6XEB74DeIfOtIN0dqUGQzaGqU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:7777/api/tasks/6a1dd99bc1379621360665c2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7777",
+              "path": ["api", "tasks", "6a1dd99bc1379621360665c2"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "/health",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:7777/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "7777",
+          "path": [""]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -7,7 +7,6 @@ const redisClient = require("../config/redis");
 const { clearTaskCache } = require("../utils/cache");
 
 const createTask = async (req, res) => {
-  console.log("ROLE:", req.user.role);
   try {
     const { title, description, priority, assignee, due_date } = req.body;
 
@@ -110,6 +109,9 @@ const updateTaskStatus = async (req, res) => {
       return errorResponse(res, 404, "TASK_NOT_FOUND", "Task not found");
     }
 
+    if (task.organizationId.toString() !== req.user.organizationId.toString()) {
+      return errorResponse(res, 403, "FORBIDDEN", "Access denied");
+    }
     //RBAC check (ASSIGNEE or MANAGER)
     const isAssignee = task.assignee.toString() === req.user.userId;
 

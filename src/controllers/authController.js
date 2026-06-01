@@ -69,6 +69,15 @@ const refreshToken = async (req, res) => {
       );
     }
 
+    if (error.message === "ORGANIZATION_ALREADY_EXISTS") {
+      return errorResponse(
+        res,
+        400,
+        "ORGANIZATION_ALREADY_EXISTS",
+        "Organization already exists"
+      );
+    }
+
     return errorResponse(res, 500, "INTERNAL_SERVER_ERROR", error.message);
   }
 };

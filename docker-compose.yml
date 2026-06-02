@@ -3,12 +3,15 @@ services:
     build: .
     ports:
       - "7777:7777"
-    env_file:
-      - .env
+    environment:
+      PORT: 7777
+      MONGO_URI: mongodb+srv://rohithreddykuruganti_db_user:1emgaAoLAcJbk497@tasktracker.e6jsl6n.mongodb.net/task-tracker
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: mysecretkey0409
     depends_on:
       - redis
 
   redis:
-    image: redis:latest
+    image: redis:7-alpine
     ports:
       - "6379:6379"

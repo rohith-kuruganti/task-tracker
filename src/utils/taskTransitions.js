@@ -3,7 +3,7 @@ const allowedTransitions = {
   IN_PROGRESS: ["IN_REVIEW", "BLOCKED"],
   IN_REVIEW: ["DONE", "BLOCKED"],
   DONE: [],
-  BLOCKED: ["TODO"],
+  BLOCKED: ["TODO", "IN_PROGRESS"],
 };
 
 const isValidTransition = (currentStatus, newStatus) => {

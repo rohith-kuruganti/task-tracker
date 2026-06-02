@@ -5,11 +5,17 @@ services:
       - "7777:7777"
     environment:
       PORT: 7777
-      MONGO_URI: mongodb+srv://rohithreddykuruganti_db_user:1emgaAoLAcJbk497@tasktracker.e6jsl6n.mongodb.net/task-tracker
+      MONGO_URI: mongodb://db:27017/task-tracker
       REDIS_URL: redis://redis:6379
       JWT_SECRET: mysecretkey0409
     depends_on:
+      - db
       - redis
+
+  db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
 
   redis:
     image: redis:7-alpine
